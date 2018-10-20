@@ -14,6 +14,7 @@ public class Article {
     private String title;
     private String content;
     private Date createDate;
+    private String contentAbstract;
 
     public String getId() {
         return id;
@@ -40,9 +41,16 @@ public class Article {
     }
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "create_date")
     public Date getCreateDate() {
         return createDate;
+    }
+
+    public String getContentAbstract() {
+        return contentAbstract;
+    }
+
+    public void setContentAbstract(String contentAbstract) {
+        this.contentAbstract = contentAbstract;
     }
 
     public void setCreateDate(Date createDate) {

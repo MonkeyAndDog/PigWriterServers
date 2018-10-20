@@ -28,4 +28,12 @@ public class UserLogin {
         user.setUsername(this.username);
         return user;
     }
+
+    @Override
+    public String toString() {
+        return "UserLogin{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

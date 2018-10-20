@@ -23,7 +23,7 @@ public class ArticleController {
     @ResponseBody
     public String getArticles() {
         List<Article> articles = articleService.loadAll();
-        return JSON.toJSONString(articles);
+        return JSON.toJSONStringWithDateFormat(articles, "yyyy-MM-dd HH:mm:ss");
     }
 
     @CrossOrigin("http://localhost:8081")
@@ -31,7 +31,7 @@ public class ArticleController {
     @ResponseBody
     public String getArticleById(String id) {
         Article article = articleService.loadById(id);
-        return JSON.toJSONString(article);
+        return JSON.toJSONStringWithDateFormat(article, "yyyy-MM-dd HH:mm:ss");
     }
 
     @CrossOrigin("http://localhost:8081")
@@ -44,6 +44,14 @@ public class ArticleController {
             article.setContent(content);
             article.setTitle(title);
             article.setCreateDate(new Date());
+            int start = content.indexOf("---");
+            String contentAbstract;
+            if (start > 30) {
+                contentAbstract = content.substring(0, 30);
+            } else {
+                contentAbstract = content.substring(0, start-1);
+            }
+            article.setContentAbstract(contentAbstract + " ...");
             articleService.save(article);
             apiTarget.setData("存储成功")
                     .setState(200)
