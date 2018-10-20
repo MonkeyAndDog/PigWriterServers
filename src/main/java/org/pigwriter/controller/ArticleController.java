@@ -46,10 +46,13 @@ public class ArticleController {
             article.setCreateDate(new Date());
             int start = content.indexOf("---");
             String contentAbstract;
-            if (start > 30) {
-                contentAbstract = content.substring(0, 30);
+            if (start > 30 || start <= 0) {
+                if (content.length() < 30)
+                    contentAbstract = content.substring(0, content.length()-1);
+                else
+                    contentAbstract = content.substring(0, 30);
             } else {
-                contentAbstract = content.substring(0, start-1);
+                contentAbstract = content.substring(0, start - 1);
             }
             article.setContentAbstract(contentAbstract + " ...");
             articleService.save(article);

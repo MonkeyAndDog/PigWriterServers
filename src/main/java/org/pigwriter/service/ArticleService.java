@@ -24,8 +24,10 @@ public class ArticleService {
     }
 
     public List<Article> loadAll() {
-//        List<Article> articles = (List<Article>) hibernateTemplate.find("from org.pigwriter.model.Article article order by org.pigwriter.model.Article.createDate");
-        List<Article> articles = hibernateTemplate.loadAll(Article.class);
+        List<Article> articles =
+                (List<Article>) hibernateTemplate
+                        .find("from org.pigwriter.model.Article article order by article.createDate desc");
+//        List<Article> articles = hibernateTemplate.loadAll(Article.class);
         return articles;
     }
 
