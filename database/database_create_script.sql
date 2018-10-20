@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `pigwriter`.`article` (
   `id` VARCHAR(32) NOT NULL,
   `title` VARCHAR(200) NULL,
   `content` TEXT NULL,
-  `create_time` DATETIME NULL,
+  `createDate` DATETIME NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 

@@ -2,14 +2,14 @@ package org.pigwriter.service;
 
 import org.pigwriter.model.Article;
 import org.springframework.orm.hibernate5.HibernateTemplate;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-@Component
+@Transactional
 public class ArticleService {
     private HibernateTemplate hibernateTemplate;
 
@@ -24,12 +24,13 @@ public class ArticleService {
     }
 
     public List<Article> loadAll() {
-        List<Article> articles = (List<Article>) hibernateTemplate.find("from Article article order by article.createDate desc");
+//        List<Article> articles = (List<Article>) hibernateTemplate.find("from org.pigwriter.model.Article article order by org.pigwriter.model.Article.createDate");
+        List<Article> articles = hibernateTemplate.loadAll(Article.class);
         return articles;
     }
 
     public Article loadById(String id) {
-        Article article = hibernateTemplate.load(Article.class, id);
+        Article article = hibernateTemplate.get(Article.class, id);
         if (article != null) {
             return article;
         } else {

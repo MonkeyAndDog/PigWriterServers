@@ -16,7 +16,7 @@
 
     <!--启用一些spring的annotation-->
     <context:annotation-config/>
-
+    <context:component-scan base-package="org.pigwriter"/>
     <!--注解驱动-->
     <mvc:annotation-driven/>
 

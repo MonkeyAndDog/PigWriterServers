@@ -39,12 +39,12 @@ public class Article {
         this.content = content;
     }
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "create_date")
     public Date getCreateDate() {
         return createDate;
     }
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="create_date")
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class ArticleController {
     private ArticleService articleService;
 
     @CrossOrigin("http://localhost:8081")
-    @RequestMapping("/list")
+    @RequestMapping(value = "/list", produces = "application/json;charset=utf-8")
     @ResponseBody
     public String getArticles() {
         List<Article> articles = articleService.loadAll();
@@ -26,7 +27,7 @@ public class ArticleController {
     }
 
     @CrossOrigin("http://localhost:8081")
-    @RequestMapping("/read")
+    @RequestMapping(value = "/read", produces = "application/json;charset=utf-8")
     @ResponseBody
     public String getArticleById(String id) {
         Article article = articleService.loadById(id);
@@ -34,7 +35,7 @@ public class ArticleController {
     }
 
     @CrossOrigin("http://localhost:8081")
-    @RequestMapping("/add")
+    @RequestMapping(value = "/add", produces = "application/json;charset=utf-8")
     @ResponseBody
     public String addArticle(String title, String content) {
         APITarget apiTarget = new APITarget();
@@ -60,6 +61,7 @@ public class ArticleController {
         return articleService;
     }
 
+    @Resource
     public void setArticleService(ArticleService articleService) {
         this.articleService = articleService;
     }
