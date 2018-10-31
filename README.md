@@ -38,7 +38,7 @@
      
 ## 3. 程序获取及编译部署运行方式
 1. 获取
-> 该项目源代码托管地址：[传送门](https://github.com/MonkeyAndDog/pigwriter)
+> 该项目源代码托管地址：[传送门](https://github.com/MonkeyAndDog/PigWriterServers)
 ```
 git clone git@github.com:MonkeyAndDog/pigwriter.git
 ```
