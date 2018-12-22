@@ -6,9 +6,9 @@
     <session-factory>
         <!-- Database connection settings -->
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost/pigwriter</property>
+        <property name="connection.url">jdbc:mysql://172.17.0.2/pigwriter</property>
         <property name="connection.username">root</property>
-        <property name="connection.password">111111</property>
+        <property name="connection.password">123456</property>
         <property name="connection.pool_size">3</property>
         <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
         <property name="hibernate.format_sql">true</property>
